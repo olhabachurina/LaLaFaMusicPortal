@@ -1,0 +1,272 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Музыкальный портал</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/styles.css">
+    <script>
+        function changeLanguage(lang) {
+            document.querySelectorAll('[data-lang]').forEach(element => {
+                element.style.display = element.getAttribute('data-lang') === lang ? 'block' : 'none';
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("languageSelect").addEventListener("change", function () {
+                changeLanguage(this.value);
+            });
+
+            // Add smooth scroll to section functionality
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <header class="my-4">
+        <h1 class="text-center" data-lang="ru">Музыкальный портал</h1>
+        <h1 class="text-center" data-lang="uk" style="display: none;">Музичний портал</h1>
+        <h1 class="text-center" data-lang="en" style="display: none;">Music Portal</h1>
+        
+        <div class="text-center">
+            <select id="languageSelect" class="form-control" style="max-width: 150px; display: inline-block;">
+                <option value="ru">Русский</option>
+                <option value="uk">Українська</option>
+                <option value="en">English</option>
+            </select>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <div class="sidebar-left">
+            <h3 data-lang="ru">Фильтр песен</h3>
+            <h3 data-lang="uk" style="display: none;">Фільтр пісень</h3>
+            <h3 data-lang="en" style="display: none;">Song Filter</h3>
+            <form>
+                <label for="genreFilter" data-lang="ru">Жанр</label>
+                <label for="genreFilter" data-lang="uk" style="display: none;">Жанр</label>
+                <label for="genreFilter" data-lang="en" style="display: none;">Genre</label>
+                <select id="genreFilter">
+                    <option value="all" data-lang="ru">Все</option>
+                    <option value="rock" data-lang="ru">Рок</option>
+                    <option value="pop" data-lang="ru">Поп</option>
+                    <option value="jazz" data-lang="ru">Джаз</option>
+                    <option value="classical" data-lang="ru">Классическая музыка</option>
+                    <option value="electronic" data-lang="ru">Электронная музыка</option>
+
+                    <option value="all" data-lang="uk" style="display: none;">Всі</option>
+                    <option value="rock" data-lang="uk" style="display: none;">Рок</option>
+                    <option value="pop" data-lang="uk" style="display: none;">Поп</option>
+                    <option value="jazz" data-lang="uk" style="display: none;">Джаз</option>
+                    <option value="classical" data-lang="uk" style="display: none;">Класична музика</option>
+                    <option value="electronic" data-lang="uk" style="display: none;">Електронна музика</option>
+
+                    <option value="all" data-lang="en" style="display: none;">All</option>
+                    <option value="rock" data-lang="en" style="display: none;">Rock</option>
+                    <option value="pop" data-lang="en" style="display: none;">Pop</option>
+                    <option value="jazz" data-lang="en" style="display: none;">Jazz</option>
+                    <option value="classical" data-lang="en" style="display: none;">Classical Music</option>
+                    <option value="electronic" data-lang="en" style="display: none;">Electronic Music</option>
+                </select>
+
+                <label for="artistFilter" data-lang="ru">Исполнитель</label>
+                <label for="artistFilter" data-lang="uk" style="display: none;">Виконавець</label>
+                <label for="artistFilter" data-lang="en" style="display: none;">Artist</label>
+                <select id="artistFilter">
+                    <option value="all" data-lang="ru">Все</option>
+                    <option value="artist1" data-lang="ru">Исполнитель 1</option>
+                    <option value="artist2" data-lang="ru">Исполнитель 2</option>
+
+                    <option value="all" data-lang="uk" style="display: none;">Всі</option>
+                    <option value="artist1" data-lang="uk" style="display: none;">Виконавець 1</option>
+                    <option value="artist2" data-lang="uk" style="display: none;">Виконавець 2</option>
+
+                    <option value="all" data-lang="en" style="display: none;">All</option>
+                    <option value="artist1" data-lang="en" style="display: none;">Artist 1</option>
+                    <option value="artist2" data-lang="en" style="display: none;">Artist 2</option>
+                </select>
+
+                <label for="moodFilter" data-lang="ru">Настроение</label>
+                <label for="moodFilter" data-lang="uk" style="display: none;">Настрій</label>
+                <label for="moodFilter" data-lang="en" style="display: none;">Mood</label>
+                <select id="moodFilter">
+                    <option value="all" data-lang="ru">Все</option>
+                    <option value="happy" data-lang="ru">Счастливый</option>
+                    <option value="sad" data-lang="ru">Грустный</option>
+
+                    <option value="all" data-lang="uk" style="display: none;">Всі</option>
+                    <option value="happy" data-lang="uk" style="display: none;">Щасливий</option>
+                    <option value="sad" data-lang="uk" style="display: none;">Сумний</option>
+
+                    <option value="all" data-lang="en" style="display: none;">All</option>
+                    <option value="happy" data-lang="en" style="display: none;">Happy</option>
+                    <option value="sad" data-lang="en" style="display: none;">Sad</option>
+                </select>
+
+                <button type="button" data-lang="ru">Поиск</button>
+                <button type="button" data-lang="uk" style="display: none;">Пошук</button>
+                <button type="button" data-lang="en" style="display: none;">Search</button>
+            </form>
+        </div>
+
+        <div class="content">
+            <nav>
+                <ul class="nav nav-pills justify-content-center">
+                    <li class="nav-item"><a class="nav-link active" asp-area="" asp-controller="Home" asp-action="Index" data-lang="ru">Главная</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index" data-lang="uk" style="display: none;">Головна</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index" data-lang="en" style="display: none;">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Genres" asp-action="Index" data-lang="ru">Жанры</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Genres" asp-action="Index" data-lang="uk" style="display: none;">Жанри</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Genres" asp-action="Index" data-lang="en" style="display: none;">Genres</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Genres" asp-action="Create" data-lang="ru">Добавить жанр</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Genres" asp-action="Create" data-lang="uk" style="display: none;">Додати жанр</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Genres" asp-action="Create" data-lang="en" style="display: none;">Add Genre</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Songs" asp-action="Create" data-lang="ru">Добавить песню</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Songs" asp-action="Create" data-lang="uk" style="display: none;">Додати пісню</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Songs" asp-action="Create" data-lang="en" style="display: none;">Add Song</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Registration" asp-action="Register" data-lang="ru">Регистрация</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Registration" asp-action="Register" data-lang="uk" style="display: none;">Реєстрація</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Registration" asp-action="Register" data-lang="en" style="display: none;">Register</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Admin" asp-action="Index" data-lang="ru">Админ</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Admin" asp-action="Index" data-lang="uk" style="display: none;">Адмін</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Admin" asp-action="Index" data-lang="en" style="display: none;">Admin</a></li>
+                </ul>
+            </nav>
+            <main>
+                <section id="genres">
+                    <h2 data-lang="ru">Жанры</h2>
+                    <h2 data-lang="uk" style="display: none;">Жанри</h2>
+                    <h2 data-lang="en" style="display: none;">Genres</h2>
+                    <p class="text-center" data-lang="ru">Скачивайте и загружайте любимые песни в различных жанрах!</p>
+                    <p class="text-center" data-lang="uk" style="display: none;">Завантажуйте та завантажуйте улюблені пісні в різних жанрах!</p>
+                    <p class="text-center" data-lang="en" style="display: none;">Download and upload your favorite songs in various genres!</p>
+                    <ul class="list-unstyled">
+                        <li data-lang="ru"><img src="~/images/icon-music.png" alt="Note Icon" class="note-icon"> Рок</li>
+                        <li data-lang="uk" style="display: none;"><img src="~/images/icon-music.png" alt="Note Icon" class="note-icon"> Рок</li>
+                        <li data-lang="en" style="display: none;"><img src="~/images/icon-music.png" alt="Note Icon" class="note-icon"> Rock</li>
+
+                        <li data-lang="ru"><img src="~/images/icon-music.png" alt="Note Icon" class="note-icon"> Поп</li>
+                        <li data-lang="uk" style="display: none;"><img src="~/images/icon-music.png" alt="Note Icon" class="note-icon"> Поп</li>
+                        <li data-lang="en" style="display: none;"><img src="~/images/icon-music.png" alt="Note Icon" class="note-icon"> Pop</li>
+
+                        <li data-lang="ru"><img src="~/images/icon-music.png" alt="Note Icon" class="note-icon"> Джаз</li>
+                        <li data-lang="uk" style="display: none;"><img src="~/images/icon-music.png" alt="Note Icon" class="note-icon"> Джаз</li>
+                        <li data-lang="en" style="display: none;"><img src="~/images/icon-music.png" alt="Note Icon" class="note-icon"> Jazz</li>
+
+                        <li data-lang="ru"><img src="~/images/icon-music.png" alt="Note Icon" class="note-icon"> Классическая музыка</li>
+                        <li data-lang="uk" style="display: none;"><img src="~/images/icon-music.png" alt="Note Icon" class="note-icon"> Класична музика</li>
+                        <li data-lang="en" style="display: none;"><img src="~/images/icon-music.png" alt="Note Icon" class="note-icon"> Classical Music</li>
+
+                        <li data-lang="ru"><img src="~/images/icon-music.png" alt="Note Icon" class="note-icon"> Электронная музыка</li>
+                        <li data-lang="uk" style="display: none;"><img src="~/images/icon-music.png" alt="Note Icon" class="note-icon"> Електронна музика</li>
+                        <li data-lang="en" style="display: none;"><img src="~/images/icon-music.png" alt="Note Icon" class="note-icon"> Electronic Music</li>
+                    </ul>
+                </section>
+                <section id="song-clips">
+                    <h2 data-lang="ru">Топ Клипов</h2>
+                    <h2 data-lang="uk" style="display: none;">Топ Кліпів</h2>
+                    <h2 data-lang="en" style="display: none;">Top Clips</h2>
+                    <div class="song-card-container">
+                        <div class="song-card">
+                            <img src="~/images/Sabrina.jpg" alt="Thumbnail">
+                            <h5>Espresso </h5>
+                            <p>Sabrina Carpenter</p>
+                            <video controls>
+                                <source src="~/video/y2mate.com - Sabrina Carpenter  Espresso Official Video_360P.mp4" type="video/mp4">
+                                Ваш браузер не поддерживает элемент
+                                <code>video</code>.
+                            </video>
+                        </div>
+                        <div class="song-card">
+                            <img src="~/images/Sting.jpg" alt="Thumbnail">
+                            <h5>Englishman in New York </h5>
+                            <p>Sting</p>
+                            <video controls>
+                                <source src="~/video/utomp3.com - Sting  Englishman In New York.mp4" type="video/mp4">
+                                Ваш браузер не поддерживает элемент
+                                <code>video</code>.
+                            </video>
+                        </div>
+                        @*   <div class="song-card">
+                        <img src="~/images/rammstein.jpg" alt="Thumbnail">
+                        <h5>Sonne</h5>
+                        <p>Rammstein</p>
+                        <video controls>
+                        <source src="~/video/utomp3.com - Rammstein  Sonne Official Video.mp4" type="video/mp4">
+                        Ваш браузер не поддерживает элемент
+                        <code>video</code>.
+                        </video>
+                        </div>
+                    </div> *@
+                </section>
+            </main>
+        </div>
+
+        <div class="sidebar-right">
+            <h3 data-lang="ru">Добро пожаловать на Музыкальный портал</h3>
+            <h3 data-lang="uk" style="display: none;">Ласкаво просимо на Музичний портал</h3>
+            <h3 data-lang="en" style="display: none;">Welcome to the Music Portal</h3>
+            <form>
+                <label for="userFilter" data-lang="ru">Имя</label>
+                <label for="userFilter" data-lang="uk" style="display: none;">Ім'я</label>
+                <label for="userFilter" data-lang="en" style="display: none;">Name</label>
+                <input type="text" id="userFilter" placeholder="Введите имя">
+
+                <label for="emailFilter" data-lang="ru">Email</label>
+                <label for="emailFilter" data-lang="uk" style="display: none;">Електронна пошта</label>
+                <label for="emailFilter" data-lang="en" style="display: none;">Email</label>
+                <input type="email" id="emailFilter" placeholder="Введите email">
+
+                <label for="statusFilter" data-lang="ru">Активность</label>
+                <label for="statusFilter" data-lang="uk" style="display: none;">Активність</label>
+                <label for="statusFilter" data-lang="en" style="display: none;">Activity</label>
+                <select id="statusFilter">
+                    <option value="all" data-lang="ru">Все</option>
+                    <option value="active" data-lang="ru">Активные</option>
+                    <option value="inactive" data-lang="ru">Неактивные</option>
+
+                    <option value="all" data-lang="uk" style="display: none;">Всі</option>
+                    <option value="active" data-lang="uk" style="display: none;">Активні</option>
+                    <option value="inactive" data-lang="uk" style="display: none;">Неактивні</option>
+
+                    <option value="all" data-lang="en" style="display: none;">All</option>
+                    <option value="active" data-lang="en" style="display: none;">Active</option>
+                    <option value="inactive" data-lang="en" style="display: none;">Inactive</option>
+                </select>
+
+                <button type="button" data-lang="ru">Поиск</button>
+                <button type="button" data-lang="uk" style="display: none;">Пошук</button>
+                <button type="button" data-lang="en" style="display: none;">Search</button>
+            </form>
+            <div class="user-list">
+                <h4 data-lang="ru">Список пользователей</h4>
+                <h4 data-lang="uk" style="display: none;">Список користувачів</h4>
+                <h4 data-lang="en" style="display: none;">User List</h4>
+                <ul>
+                    <li>Пользователь 1 (user1@example.com)</li>
+                    <li>Пользователь 2 (user2@example.com)</li>
+                    <li>Пользователь 3 (user3@example.com)</li>
+                   
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Музыкальный портал. Все права защищены.</p>
+    </footer>
+</body>
+</html>
